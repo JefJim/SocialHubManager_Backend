@@ -1,8 +1,9 @@
-using System;
+﻿using SocialHubManager_Backend.src.Core.Entities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SocialHubManager_Backend.src.Core.Models
+namespace SocialHubManager_Backend.src.Core.Entities
 {
     [Table("Users")]
     public class User
@@ -34,5 +35,7 @@ namespace SocialHubManager_Backend.src.Core.Models
 
         [Column("updatedAt")]
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+        public ICollection<UserSocialNetwork> UserSocialNetworks { get; set; } = new List<UserSocialNetwork>();
     }
 }
